@@ -190,7 +190,7 @@ Generate summaries, extract keywords, and identify important concepts from insur
 
 1. **Text Extraction**: Extract raw text from PDF using PyPDF
 2. **Text Cleaning**: Remove headers, footers, page numbers, and formatting artifacts
-3. **Chunking**: Split document into overlapping chunks (default: 2000 chars with 200 char overlap)
+3. **Chunking**: Split document into overlapping chunks (configured: 2000 chars with 200 char overlap)
 4. **Enrichment** (Parallel Processing):
    - Generate summaries for each chunk
    - Extract relevant keywords
@@ -216,12 +216,12 @@ Modify chunk settings in `src/agents/analyzer_agent.py`:
 # In process_document method
 self.chunks = self.chunk_text(
     self.cleaned_text, 
-    chunk_size=2000,      # Adjust chunk size (method default: 2500)
-    chunk_overlap=200     # Adjust overlap (method default: 300)
+    chunk_size=2000,      # Currently configured chunk size
+    chunk_overlap=200     # Currently configured overlap
 )
 ```
 
-Note: The `chunk_text` method has default parameters of `chunk_size=2500` and `chunk_overlap=300`, but `process_document` overrides these with 2000 and 200 respectively for optimal performance.
+Note: The `chunk_text` method has default parameters of `chunk_size=2500` and `chunk_overlap=300`, but `process_document` explicitly uses 2000 and 200 for optimal performance with the current LLM setup.
 
 ### LLM Settings
 
