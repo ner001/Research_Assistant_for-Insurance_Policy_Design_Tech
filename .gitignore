@@ -1,0 +1,67 @@
+# Byte-compiled / caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual envs
+venv/
+.venv/
+env/
+ENV/
+.Python
+
+# Environment / secrets
+.env
+.env.*
+.streamlit/secrets.toml
+
+# Streamlit runtime/config (local overrides)
+.streamlit/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Testing / coverage
+.pytest_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Logs
+*.log
+logs/
+
+# Data, models, databases
+data/
+models/
+*.sqlite
+*.db
+*.h5
+*.ckpt
+*.pth
+*.pt
+
+# Jupyter
+.ipynb_checkpoints
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.pyc
+*.pyo
+*.orig
