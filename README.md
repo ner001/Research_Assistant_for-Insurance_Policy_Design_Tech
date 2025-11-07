@@ -16,9 +16,9 @@ This application leverages advanced Natural Language Processing (NLP) and Large 
 - **🌐 Policy Comparison**: Compare Tunisian insurance policies with international standards
 - **⚡ Parallel Processing**: Efficient multi-threaded document enrichment
 
-## Analyzer interface (Agentic RAG Pipeline)
+## Analyzer interface 
 <p align="center">
-  <img src="interface.png" alt="Analyzer interface" width="800"/>
+  <img src="interface.png" alt="Analyzer interface" width="500"/>
 </p>
 
 The Analyzer is an agentic Retrieval-Augmented Generation (RAG) pipeline that converts heterogeneous documents into structured, queryable knowledge. It emphasizes fidelity to original structure (tables, headers, formatting), rich metadata, and fast semantic retrieval so the LLM can answer questions with accurate, provenance-backed context.
@@ -47,7 +47,7 @@ Quick configuration pointers
 - Parallelism: tune ThreadPoolExecutor max_workers for CPU/memory trade-offs
 
 <p align="center">
-  <img src="pipeline.png" alt="pipeline" width="800"/>
+  <img src="pipeline.png" alt="pipeline" width="300"/>
 </p>
 
 
