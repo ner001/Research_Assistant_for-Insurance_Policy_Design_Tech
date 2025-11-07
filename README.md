@@ -47,7 +47,7 @@ Quick configuration pointers
 - Parallelism: tune ThreadPoolExecutor max_workers for CPU/memory trade-offs
 
 <p align="center">
-  <img src="pipeline.png" alt="pipeline" width="300"/>
+  <img src="pipeline.png" alt="pipeline" width="600"/>
 </p>
 
 
