@@ -19,7 +19,7 @@ This application leverages advanced Natural Language Processing (NLP) and Large 
 
 ## Analyzer interface 
 <p align="center">
-  <img src="interface.png" alt="Analyzer interface" width="500"/>
+  <img src="interface.png" alt="Analyzer interface" width="700"/>
 </p>
 
 The Analyzer is an agentic Retrieval-Augmented Generation (RAG) pipeline that converts heterogeneous documents into structured, queryable knowledge. It emphasizes fidelity to original structure (tables, headers, formatting), rich metadata, and fast semantic retrieval so the LLM can answer questions with accurate, provenance-backed context.
@@ -49,7 +49,7 @@ The **SummarizerAgent** is a specialized component that generates comprehensive 
 - **Theme Identification**: Recognizes and highlights recurring themes across document sections
 - **Relationship Preservation**: Maintains cause-effect and procedural relationships from source material
 
-Pipeline stages
+## Pipeline stages
 1. Structure-aware chunking — segment text while preserving tables, headings, lists and other structural cues to avoid meaning loss.
 2. Metadata enrichment — generate concise summaries, semantic keywords, and candidate questions for each chunk to improve retrieval precision.
 3. Re-structuring & normalization — merge heterogeneous sources (PDFs, images, code snippets, tables) into a consistent internal schema with provenance links.
@@ -60,13 +60,13 @@ Pipeline stages
 8. RAG answer generation — the LLM composes answers using retrieved chunks, summaries, and source citations; responses include provenance and confidence signals.
 9. Continuous indexing & feedback loop — support incremental updates, user feedback incorporation, and re-enrichment of changed documents.
 
-Key benefits
+## Key benefits
 - Higher relevance: enriched metadata and structure-aware chunking increase retrieval accuracy.
 - Explainability: answers include citations and chunk-level provenance.
 - Efficiency: parallel enrichment and compact embeddings reduce latency and token usage.
 - Scalability: dual storage (FAISS + relational) enables large corpora with selective re-indexing.
 
-Quick configuration pointers
+## Quick configuration pointers
 - Chunking: configurable via CHUNK_SIZE and CHUNK_OVERLAP in src/agents/analyzer_agent.py
 - Embeddings: set in src/utils/vector_store.py (default: sentence-transformers/all-MiniLM-L6-v2)
 - LLM: change model/temperature in src/agents/analyzer_agent.py (default: ollama llama3:8b)
