@@ -27,7 +27,10 @@ The Analyzer is an agentic Retrieval-Augmented Generation (RAG) pipeline that co
 ## Summarizer Agent
 
 The **SummarizerAgent** is a specialized component that generates comprehensive global summaries from document chunks. Unlike simple concatenation, it intelligently synthesizes chunk-level summaries into a coherent, executive-level overview of the entire document.
-
+## Analyzer interface 
+<p align="center">
+  <img src="summarizer.png" alt="summarizer interface" width="500"/>
+</p>
 ### How it Works
 
 1. **Context-Aware Processing**: Receives chunk summaries through a shared MCP (Multi-agent Context Protocol) context
