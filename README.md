@@ -19,7 +19,7 @@ This application leverages advanced Natural Language Processing (NLP) and Large 
 
 ## Analyzer interface 
 <p align="center">
-  <img src="interface.png" alt="Analyzer interface" width="700"/>
+  <img src="assets\interface.png" alt="Analyzer interface" width="700"/>
 </p>
 
 The Analyzer is an agentic Retrieval-Augmented Generation (RAG) pipeline that converts heterogeneous documents into structured, queryable knowledge. It emphasizes fidelity to original structure (tables, headers, formatting), rich metadata, and fast semantic retrieval so the LLM can answer questions with accurate, provenance-backed context.
@@ -29,7 +29,7 @@ The Analyzer is an agentic Retrieval-Augmented Generation (RAG) pipeline that co
 The **SummarizerAgent** is a specialized component that generates comprehensive global summaries from document chunks. Unlike simple concatenation, it intelligently synthesizes chunk-level summaries into a coherent, executive-level overview of the entire document.
 ## Analyzer interface 
 <p align="center">
-  <img src="summarizer.png" alt="summarizer interface" width="500"/>
+  <img src="assets\summarizer.png" alt="summarizer interface" width="500"/>
 </p>
 ### How it Works
 
@@ -73,7 +73,7 @@ The **SummarizerAgent** is a specialized component that generates comprehensive 
 - Parallelism: tune ThreadPoolExecutor max_workers for CPU/memory trade-offs
 
 <p align="center">
-  <img src="pipeline.png" alt="pipeline" width="600"/>
+  <img src="assets\pipeline.png" alt="pipeline" width="600"/>
 </p>
 
 
