@@ -95,9 +95,10 @@ Research_Assistant_for-Insurance_Policy_Design_Tech/
 │   │
 │   ├── utils/                    # Utility functions
 │   │   ├── __init__.py
-│   │   ├── document_processor.py # PDF text extraction and chunking
-│   │   ├── llm_handler.py        # LLM API integration
-│   │   └── vector_store.py       # Vector store management
+│   │   ├── text_extractor.py     # PDF text extraction
+│   │   ├── text_cleaner.py       # Text preprocessing and cleaning
+│   │   ├── chunker.py            # Document chunking utilities
+│   │   └── process_document.py   # Main document processing pipeline
 │   │
 │   ├── mcp.py                    # Shared context management for agents
 │   └── app.py                    # Main Streamlit application
