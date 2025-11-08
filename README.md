@@ -10,6 +10,7 @@ This application leverages advanced Natural Language Processing (NLP) and Large 
 
 - **📄 Document Processing**: Extract and process text from PDF insurance documents
 - **🤖 Multi-Agent System**: Specialized agents for document analysis and enrichment
+- **📝 Global Summarization**: Generate comprehensive summaries synthesized from chunk-level analysis
 - **🔍 Semantic Search**: Vector-based similarity search for finding relevant information
 - **💡 Intelligent Q&A**: Answer questions about insurance policies using context-aware AI
 - **📊 Document Enrichment**: Automatic generation of summaries, keywords, and relevant questions
@@ -22,6 +23,28 @@ This application leverages advanced Natural Language Processing (NLP) and Large 
 </p>
 
 The Analyzer is an agentic Retrieval-Augmented Generation (RAG) pipeline that converts heterogeneous documents into structured, queryable knowledge. It emphasizes fidelity to original structure (tables, headers, formatting), rich metadata, and fast semantic retrieval so the LLM can answer questions with accurate, provenance-backed context.
+
+## Summarizer Agent
+
+The **SummarizerAgent** is a specialized component that generates comprehensive global summaries from document chunks. Unlike simple concatenation, it intelligently synthesizes chunk-level summaries into a coherent, executive-level overview of the entire document.
+
+### How it Works
+
+1. **Context-Aware Processing**: Receives chunk summaries through a shared MCP (Multi-agent Context Protocol) context
+2. **Intelligent Synthesis**: Uses advanced LLM prompting to combine chunk summaries while:
+   - Eliminating redundancy
+   - Maintaining logical flow
+   - Preserving key information and relationships
+   - Identifying recurring themes and major sections
+3. **Faithful Summarization**: Ensures no hallucination - only information present in chunk summaries is included
+4. **Professional Output**: Generates concise, well-structured summaries suitable for executives and researchers
+
+### Key Features
+
+- **Fallback Mechanism**: Can extract summaries from context or metadata
+- **Structured Prompting**: Uses detailed instructions to ensure high-quality output
+- **Theme Identification**: Recognizes and highlights recurring themes across document sections
+- **Relationship Preservation**: Maintains cause-effect and procedural relationships from source material
 
 Pipeline stages
 1. Structure-aware chunking — segment text while preserving tables, headings, lists and other structural cues to avoid meaning loss.
@@ -59,7 +82,8 @@ Research_Assistant_for-Insurance_Policy_Design_Tech/
 ├── src/                          # Source code directory
 │   ├── agents/                   # AI agents for document processing
 │   │   ├── __init__.py
-│   │   └── analyzer_agent.py     # Main document analyzer agent
+│   │   ├── analyzer_agent.py     # Main document analyzer agent
+│   │   └── summarizer_agent.py   # Document summarization agent
 │   │
 │   ├── components/               # UI components
 │   │   ├── __init__.py
@@ -71,10 +95,12 @@ Research_Assistant_for-Insurance_Policy_Design_Tech/
 │   │
 │   ├── utils/                    # Utility functions
 │   │   ├── __init__.py
-│   │   ├── document_processor.py # PDF text extraction and chunking
-│   │   ├── llm_handler.py        # LLM API integration
-│   │   └── vector_store.py       # Vector store management
+│   │   ├── text_extractor.py     # PDF text extraction
+│   │   ├── text_cleaner.py       # Text preprocessing and cleaning
+│   │   ├── chunker.py            # Document chunking utilities
+│   │   └── process_document.py   # Main document processing pipeline
 │   │
+│   ├── mcp.py                    # Shared context management for agents
 │   └── app.py                    # Main Streamlit application
 │
 ├── results/                      # Output directory for enriched chunks
@@ -196,6 +222,7 @@ python -m streamlit run app.py
    - Create a vector store for semantic search
 4. **Ask questions** about the document in the query input field
 5. **Get AI-powered answers** based on the document content
+6. **Generate Global Summary**: Click the "Generate Global Summary" button to create a comprehensive executive summary of the entire document
 
 ### Sample Queries
 
@@ -237,9 +264,15 @@ Generate summaries, extract keywords, and identify important concepts from insur
 ### Multi-Agent Architecture
 
 - **DocumentAnalyzerAgent**: Main agent responsible for document processing, enrichment, and query answering
+- **SummarizerAgent**: Specialized agent for generating comprehensive global summaries from chunk-level summaries
+  - Synthesizes multiple chunk summaries into a coherent global summary
+  - Uses context-aware processing via shared MCP (Multi-agent Context Protocol)
+  - Eliminates redundancy while maintaining document fidelity
+  - Produces executive-level summaries suitable for quick document understanding
 - **Text Preprocessing**: Intelligent cleaning to reduce token load by 20-30%
 - **Parallel Enrichment**: Uses ThreadPoolExecutor for concurrent chunk processing
 - **Context-Aware Q&A**: Leverages document summaries, keywords, and original text for comprehensive answers
+- **Shared Context (MCP)**: Thread-safe context management enabling agents to share metadata and summaries efficiently
 
 ## 🛠️ Configuration
 
